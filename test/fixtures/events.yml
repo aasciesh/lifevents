@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  urgency: MyString
+  post_date: 2013-02-21 16:49:13
+  from_time: 2013-02-21 16:49:13
+  to_time: 2013-02-21 16:49:13
+  priority_point: 1
+
+two:
+  name: MyString
+  description: MyText
+  urgency: MyString
+  post_date: 2013-02-21 16:49:13
+  from_time: 2013-02-21 16:49:13
+  to_time: 2013-02-21 16:49:13
+  priority_point: 1
