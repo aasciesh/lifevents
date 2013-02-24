@@ -1,15 +1,14 @@
 Happenly::Application.routes.draw do
-  get "users/index"
+  
 
-  get "users/show"
+  get "sessions/new"
 
-  get "users/new"
+  get "sessions/create"
 
-  get "users/create"
-
-  get "users/delete"
+  get "sessions/destroy"
 
  resources :users
+ 
  match '/signup', to: 'users#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130221175132) do
+ActiveRecord::Schema.define(:version => 20130223233814) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -75,6 +75,10 @@ ActiveRecord::Schema.define(:version => 20130221175132) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "remember_cookie"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["remember_cookie"], :name => "index_users_on_remember_cookie"
 
 end

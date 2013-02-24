@@ -11,3 +11,19 @@
  *= require_self
  *= require_tree .
  */
+
+.nav-container
+{
+
+	height:45px;
+	width:100%;
+	background-color: black;
+	position: fixed;
+	margin: 0px;
+	top:0px;
+	left:0px;
+}
+.container
+{
+	margin-top: 45px;
+}

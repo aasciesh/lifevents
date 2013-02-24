@@ -12,4 +12,18 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   validates :email, presence: true, format: {with: EMAIL_REGEX}, uniqueness: { case_sensitive: false } 
   
+  before_save(on: :update) do
+    @tempuser = User.find_by_id(self.id)
+    self.firstname = @tempuser.firstname
+    self.lastname = @tempuser.lastname
+  end
+  before_save :create_cookie
+
+
+  private 
+
+  def create_cookie
+      self.remember_cookie = SecureRandom.urlsafe_base64
+  end
+
 end
