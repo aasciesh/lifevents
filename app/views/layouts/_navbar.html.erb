@@ -1,0 +1,17 @@
+<div class="nav-container">
+	<div class="navBar">
+		<div id="logo">
+			<span id="logoText"> Happenly </span> 
+		</div>
+		<div id="searchDiv">
+			<%= render 'layouts/search' %>
+		</div>
+		<div id="userInfo">
+			<% if signed_in? %>
+				<%= render 'layouts/signBar' %>
+			<% else %>
+				<%= render 'layouts/userBar' %>
+			<%end%>
+		</div>
+	</div>
+</div>

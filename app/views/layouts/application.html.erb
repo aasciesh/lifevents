@@ -3,18 +3,29 @@
 <head>
   <title>Happenly</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+ <!--[if lte IE 8]>
+     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
+ <![endif]-->
 </head>
 <body>
-<div class="nav-container">
-	<div class="navbar">
-
-	</div>
-</div>
+<%= render 'layouts/navbar' %>
 <div class="container">
 <%= yield %>
 <div>
 </body>
 <%= render 'layouts/footer' %>
+<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+<%= javascript_include_tag "application" %>
+<script type="text/javascript">
+	$("#map").height($(document).height() - 45);
+
+	var map = L.map('map').setView([60.169845, 24.9385508], 13);
+	L.tileLayer('http://{s}.tile.cloudmade.com/bf1b79ed16d34e568ff0b0295e99d328/997/256/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    maxZoom: 18
+}).addTo(map);
+	
+</script>
 </html>

@@ -1,15 +1,14 @@
 Happenly::Application.routes.draw do
   
-
-  get "sessions/new"
-
-  get "sessions/create"
-
-  get "sessions/destroy"
-
  resources :users
+ resources :sessions
  
+ root :to => 'home#index'
  match '/signup', to: 'users#new'
+ match '/signout', to: 'sessions#destroy'
+ match '/signin', to: 'sessions#new'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

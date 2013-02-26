@@ -1,0 +1,11 @@
+<% fullname= "#{current_user.firstname} #{current_user.lastname}" %>
+<%= link_to image_tag(current_user.avatar.url(:thumb), :border=>0, :class => 'pic_thumb'), current_user %>
+<div class="dropdown">
+  <%= link_to fullname, current_user %> <i class="icon-cog"></i>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    <li><%= link_to "Profile", current_user %></li>
+    <li><%= link_to "Profile Settings", edit_user_path(current_user) %></li>
+    <li class="divider"></li>
+    <li><%= link_to "Sign Out", signout_path %></li>
+  </ul>
+</div>
