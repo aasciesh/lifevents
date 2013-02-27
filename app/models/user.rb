@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   has_secure_password
   has_attached_file :avatar, :styles => { medium: "300x300>", thumb: "40x40>", tiny: "28x28" }
   has_many :comments
-  has_many :events, dependent: :destroy
+  has_many :events
+
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :firstname, presence: true, length: {maximum: 50}

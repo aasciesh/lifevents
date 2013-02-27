@@ -13,7 +13,7 @@
  */
 .nav-container
 {
-	
+	overflow: hidden;
 	height:45px;
 	width:100%;
 	position: fixed;
@@ -56,6 +56,7 @@
 }
 .navBar
 {
+	position: relative;
 	padding-top: 10px;
 	width:90%;
 	height: :45px;
@@ -115,7 +116,7 @@
 	background: -webkit-linear-gradient(#fffcfc, #f0eded);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffcfc', endColorstr='#f0eded');
 }
-qb:hover
+.qb:hover
 {
 
 	box-shadow:inset 0 1px 1px rgba(34,29,29,0.15);
@@ -137,4 +138,50 @@ qb:hover
 	left:0px;
 	width: 100%;
 	/*background-color: rgb(231, 225, 225);*/
+}
+
+.yt-uix-button-primary:hover {
+border-color: #325e92;
+background-color: #3d71b0;
+filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ff3f76b7,EndColorStr=#ff3d71b0);
+background-image: -moz-linear-gradient(top,#3f76b7 0,#3d71b0 100%);
+background-image: -ms-linear-gradient(top,#3f76b7 0,#3d71b0 100%);
+background-image: -o-linear-gradient(top,#3f76b7 0,#3d71b0 100%);
+background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#3f76b7),color-stop(100%,#3d71b0));
+background-image: -webkit-linear-gradient(top,#3f76b7 0,#3d71b0 100%);
+background-image: linear-gradient(to bottom,#3f76b7 0,#3d71b0 100%);
+}
+
+.yt-uix-button-primary, a.yt-uix-button-primary .yt-uix-button-content {
+color: #fff;
+}
+
+.yt-uix-button-primary, body .yt-uix-button-primary[disabled] {
+background-color: #6891e7;
+border-color: #3f76b7;
+text-shadow: 0 1px 0 rgba(0,0,0,.25);
+filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ff5384be,EndColorStr=#ff3f76b7);
+background-image: -moz-linear-gradient(top,#5384be 0,#3f76b7 100%);
+background-image: -ms-linear-gradient(top,#5384be 0,#3f76b7 100%);
+background-image: -o-linear-gradient(top,#5384be 0,#3f76b7 100%);
+background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#5384be),color-stop(100%,#3f76b7));
+background-image: -webkit-linear-gradient(top,#5384be 0,#3f76b7 100%);
+background-image: linear-gradient(to bottom,#5384be 0,#3f76b7 100%);
+}
+
+.yt-uix-button {
+height: 2.55em;
+padding: 0 .9em;
+border-width: 1px;
+border-style: solid;
+outline: 0;
+font-weight: bold;
+font-size: 11px;
+white-space: nowrap;
+word-wrap: normal;
+vertical-align: middle;
+cursor: pointer;
+-moz-border-radius: 2px;
+-webkit-border-radius: 2px;
+border-radius: 2px;
 }

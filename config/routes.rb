@@ -1,5 +1,8 @@
 Happenly::Application.routes.draw do
   
+ resources :events do
+    resources :comments
+ end
  resources :users
  resources :sessions
  
