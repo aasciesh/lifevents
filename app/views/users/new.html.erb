@@ -1,6 +1,7 @@
+<div class="container">
 <h1>Sign Up</h1>
 
-<%= form_for @user, :url => users_path, :html => { :multipart => true } do |f| %>
+<%= form_for(@user) do |f| %>
 	  <%= f.label :firstname %>
       <%= f.text_field :firstname %>
 
@@ -21,3 +22,4 @@
       <%= f.submit "Create my account", class: "btn btn-primary" %>
   
 <% end %>
+</div>

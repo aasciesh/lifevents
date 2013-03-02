@@ -13,7 +13,7 @@
  */
 .nav-container
 {
-	overflow: hidden;
+	
 	height:45px;
 	width:100%;
 	position: fixed;
@@ -23,36 +23,147 @@
 	z-index: 101;
 	right: 0;
 	left: 0;
+	
+}
+
+.nav-container, .user-menu, #eventForm
+{
+	background-color: #faf7f7;
 	text-align: center;
 	font-size: 13px;
 	color: #8c7e7e;
-	background-color: #faf7f7;
+	border-top: 1px solid #cfcaca;
+	box-shadow: inset 0 1px #fff,0 1px 5px rgba(34,25,25,0.6);
+	-moz-box-shadow: inset 0 1px #fff,0 1px 5px rgba(34,25,25,0.6);
+	-webkit-box-shadow: inset 0 1px #fff,0 1px 5px rgba(34,25,25,0.6);
+
+}
+.homeleftHead, .homeleftBottom
+{
+
 	border-top: 1px solid #cfcaca;
 	box-shadow: inset 0 1px #fff,0 1px 3px rgba(34,25,25,0.4);
 	-moz-box-shadow: inset 0 1px #fff,0 1px 3px rgba(34,25,25,0.4);
 	-webkit-box-shadow: inset 0 1px #fff,0 1px 3px rgba(34,25,25,0.4);
 }
-#logoText
+.logoText
 {
 	color: #236F92;
 	font-size: 30px;
 	font-weight: bolder;
 	text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
 }
-.nav-container.a
+.logoText:hover
+{
+	text-decoration: none;
+}
+/*.nav-container.a
 {
 	color: white;
 }
 .nav-container.a:hover
 {
 	color: red;
-}
+}*/
 .container
 {
 	margin-top: 45px;
 	margin:auto;
 	width: 90%;
 	z-index: 1;
+}
+.homeleft
+{
+	padding: 7px;
+	-webkit-border-radius: 8px 8px 8px 8px;
+	-moz-border-radius: 8px 8px 8px 8px;
+	border-radius: 8px 8px 8px 8px;
+	background-color: rgba(137, 158, 189, .6);
+	margin-top: 55px;
+	margin-left: 5%;
+	margin-right: 0px;
+	
+	width: 350px;
+	position: relative;
+	float: left;
+
+}
+.homeright
+{
+	position: fixed;
+	top: 55px;
+	right:0px;
+	width: 230px;
+	margin-right: 5%;
+	margin-left: 0px;
+	
+	transition: left 1s ease-in-out;
+    -moz-transition: left 1s ease-in-out; /* FF 4 */
+    -webkit-transition: left 1s ease-in-out; /* Safari & Chrome */
+    -o-transition: left 1s ease-in-out;
+}
+.homeleftHead
+{
+	-webkit-border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	border-radius: 5px 5px 0px 0px;
+	
+}
+.homeleftBottom
+{
+	margin-top: 5px;
+	
+	-webkit-border-radius: 0px 0px 5px 5px;
+	-moz-border-radius: 0px 0px 5px 5px;
+	border-radius: 0px 0px 5px 5px;
+
+}
+.homeleftHead, .homeleftBottom
+{
+	background-color: #F2F6F7;
+	padding: 0px 10px 5px 10px;
+}
+
+
+.creatEventOpener {
+	
+	height: 20px;
+	text-align: left;
+	padding: 5px 10px 5px 20px;
+	background-color: #8FC5F8;
+	font-size: 14px;
+	color: #334663;
+	border-top: 1px solid #99C4E6;
+	box-shadow: inset 0 1px #9EC1E7,0 1px 3px rgba(32, 28, 68, 0.4);
+	-moz-box-shadow: inset 0 1px #9EC1E7,0 1px 3px rgba(32, 28, 68, 0.4);
+	-webkit-box-shadow: inset 0 1px #9EC1E7,0 1px 3px rgba(32, 28, 68, 0.4);
+}
+.creatEventOpener:hover
+{
+	background-color: #EBE5E5;
+	cursor: pointer;
+	color: #333;
+	border-top: 1px solid #cfcaca;
+	box-shadow: inset 0 1px #fff,0 1px 5px rgba(34,25,25,0.6);
+	-moz-box-shadow: inset 0 1px #fff,0 1px 5px rgba(34,25,25,0.6);
+	-webkit-box-shadow: inset 0 1px #fff,0 1px 5px rgba(34,25,25,0.6);
+}
+ #eventForm
+{
+	margin-top: 15px;
+	display: none;
+	position: relative;
+	left: 230px;
+}
+.homeright:hover > #eventForm
+{
+	display: block;
+	left: 0px;
+}
+
+.icon-chevron-down
+{
+	margin:5px;
 }
 .navBar
 {
@@ -81,17 +192,61 @@
 }
 #userInfo
 {
+	z-index: 50;
+	overflow: visible;
 	display: block;
 	float:right;
 	padding-left:10px;
 	padding-right: 10px;
-	border-width: 0px 1px 0px 1px;
+	/*border-width: 0px 1px 0px 1px;
 	border-style: solid;
-	border-color: rgba(213, 206, 206, 0.62);
+	border-color: rgba(213, 206, 206, 0.62);*/
 
 }
+#userInfo:hover > .user-menu
+{
+	display: block;
+}
+.pic_thumb
+{
 
+	float: left;
+	width: 28px;
+	height:28px;
+}
+.user-menu
+{
+	position: relative;
+	display: none;
+	top: 16px;
+    left: 35px;
+	z-index: 50;
+	width:135px;
+	text-align: left;
 
+}
+.user-menu > ul 
+{
+ list-style-type: none;
+}
+.user-menu > ul > li 
+{
+	border-width: 0px 0px 1px 0px;
+	border-style: solid;
+	border-color: rgba(213, 206, 206, 0.62);
+}
+.user-option
+{
+	position: relative;
+	top: 3px;
+	padding:5px 0px 8px 25px;
+}
+.user-name:hover
+{
+
+	text-decoration: none;
+	
+}
 #q
 {
 
@@ -137,6 +292,7 @@
 	top: 45px;
 	left:0px;
 	width: 100%;
+	z-index: -1;
 	/*background-color: rgb(231, 225, 225);*/
 }
 

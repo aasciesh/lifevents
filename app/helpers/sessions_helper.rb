@@ -12,6 +12,7 @@ module SessionsHelper
 	def current_user
 		@current_user ||= User.find_by_remember_cookie(cookies[:remember_cookie])
 	end
+	
 
 	def signed_in?
 	    !current_user.nil?
@@ -22,7 +23,7 @@ module SessionsHelper
 	end
 	def sign_out 
 		cookies.delete :remember_cookie
-		current_user = null
+		current_user = nil
 	end
 
 	def store_request_path

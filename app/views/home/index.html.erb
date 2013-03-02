@@ -1,5 +1,23 @@
 
 
 <div id="map"></div>
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+<div class="homeleft">
+	<div class="homeleftHead">
+		<h2>Live Events</h2>
+		<p>Here you get live transmissions of events.</p>
+	</div>
+	<div class="homeleftBottom">
+		<h5>More >> </h5>
+	</div>
+</div>
+<div class="homeright">
+	<div class="creatEventOpener"> <span>Create And Transmit Event</span> <i class="icon-chevron-down"></i></div>
+	<div id="eventForm">
+		<% if signed_in? %>
+			
+		<% else %>
+			
+		<% end %>
+	</div>
+</div>

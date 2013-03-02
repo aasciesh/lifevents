@@ -8,7 +8,7 @@ Happenly::Application.routes.draw do
  
  root :to => 'home#index'
  match '/signup', to: 'users#new'
- match '/signout', to: 'sessions#destroy'
+ match '/signout', to: 'sessions#destroy', via: :delete
  match '/signin', to: 'sessions#new'
 
 

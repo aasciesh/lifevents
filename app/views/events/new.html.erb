@@ -1,2 +1,32 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<div çlass="container">
+<h1>What's happening? Create an event and Transmit</h1>
+<%= form_for @event do |f| %>
+	<%= f.label :name  %>
+	<%= f.text_field :name%>
+
+	<%= f.label :description, "Details"  %>
+	<%= f.text_area :description %>
+
+	<%= f.label :from_time, "From"  %>
+	<%= f.text_field :from_time %>
+
+	<%= f.label :to_time, "To"  %>
+	<%= f.text_field :to_time %>
+
+	<%= f.label :address %>
+	<%= f.text_field :address %>
+
+	<%= f.label :urgency %>
+	<%= f.select :urgency, ["Normal", "Medium", "high", "critical"] %>
+
+	<%= f.label :category  %>
+	<%= f.select :category, [ "General Information", "Music", "Sports", "Entertainment", "Politics", "Life events", "Community events"] %>
+
+	<%= f.label :tag_names %>
+	<%= f.text_field :tag_names %>
+    
+    <%= f.submit "Transmit", class: "btn" %>
+
+  <% end %>
+
+</div>

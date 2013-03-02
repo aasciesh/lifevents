@@ -9,10 +9,10 @@ gem 'pg'
 group :development, :test do
   gem 'sqlite3'
 end
-
+gem 'mysql2'
 gem 'bcrypt-ruby'
 gem 'geocoder'
-gem "paperclip", "~> 3.0"
+gem "paperclip", "~> 3.4.1"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -37,7 +37,7 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'

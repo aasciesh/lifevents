@@ -1,5 +1,7 @@
+
+
 class User < ActiveRecord::Base
-  attr_accessible  :firstname, :lastname, :password, :password_confirmation, :email, :ip, :avatar
+  attr_accessible  :firstname, :lastname, :password, :password_confirmation, :email, :avatar
   has_secure_password
   has_attached_file :avatar, :styles => { medium: "300x300>", thumb: "40x40>", tiny: "28x28" }
   has_many :comments
@@ -13,11 +15,14 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   validates :email, presence: true, format: {with: EMAIL_REGEX}, uniqueness: { case_sensitive: false } 
   
-  before_save(on: :update) do
-    @tempuser = User.find_by_id(self.id)
-    self.firstname = @tempuser.firstname
-    self.lastname = @tempuser.lastname
-  end
+  # before_save(on: :update) do
+  #   @tempuser = User.find_by_id(self.id)
+  #   self.firstname = @tempuser.firstname
+  #   self.lastname = @tempuser.lastname
+  #   self.ip = request.remote_ip
+  #   self.email = self.email.downcase
+  # end
+
   before_save :create_cookie
 
 

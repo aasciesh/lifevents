@@ -1,3 +1,5 @@
-<h1><%= @user.firstname%>&nbsp;<%=@user.lastname%></h1>
-<%= image_tag @user.avatar.url(:thumb), class: "img-polaroid" %>
+<div class="container">
+<h1><%= @user.firstname.capitalize%>&nbsp;<%=@user.lastname.capitalize%></h1>
+<%= image_tag @user.avatar.url(:medium), class: "img-polaroid" %>
 
+</div>

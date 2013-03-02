@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226231042) do
-
-  create_table "categories", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130228184907) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
@@ -36,25 +29,10 @@ ActiveRecord::Schema.define(:version => 20130226231042) do
     t.integer  "priority_point"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
-    t.string   "street"
-    t.integer  "postcode"
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
     t.float    "latitude"
     t.float    "longitude"
-  end
-
-  create_table "locations", :force => true do |t|
-    t.string   "street"
-    t.integer  "postcode"
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "address"
+    t.string   "category"
   end
 
   create_table "taglists", :force => true do |t|
