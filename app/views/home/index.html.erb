@@ -15,9 +15,14 @@
 	<div class="creatEventOpener"> <span>Create And Transmit Event</span> <i class="icon-chevron-down"></i></div>
 	<div id="eventForm">
 		<% if signed_in? %>
-			
+			<%= render 'events/new'%>
 		<% else %>
-			
+			<%= render 'sessions/new' %>
 		<% end %>
+<div id="eFpush">Click to push it away >> </div>
 	</div>
+</div>
+<div class="homefooter">
+	<%= link_to 'About', about_path%> ,
+	<bold> Happenly </bold> &copy;<a href='http://www.asishbhattarai.com'>Asish Bhattarai</a>, 2013
 </div>

@@ -1,0 +1,28 @@
+<p> Please <strong>Sign In</strong> </p>
+<p class="signup_link"> New user? <%= link_to 'Sign Up', signup_path %> </p>
+<%= form_for(:session, html: { :class => "signin_form", 'data-type' => 'json' }, remote: true, url: sessions_path) do |f| %>
+<table class="eT">
+	<tr class="eTr">
+		<th class="eTh">
+      <%= f.label :email, class: 'eTl'%>
+    </th>
+    <td class="eTd">
+      <%= f.text_field :email, class: 'eTi', required: true, type: 'email'  %>
+    </td>
+  </tr>
+  <tr  class="eTr">
+    <th class="eTh">
+      <%= f.label :password, class: 'eTl' %>
+    </th>
+    <td class="eTd">
+      <%= f.password_field :password, class: 'eTi', required: true %>
+    </td>
+  </tr>
+</table>
+</br>
+<div class="eFSB">
+ <%= image_tag "ajax-loader.gif", class: 'ajax-loader' %>
+ <%= f.submit "Sign in", class: "yt-uix-button-primary yt-uix-button" %>
+</div>
+<% end %>
+

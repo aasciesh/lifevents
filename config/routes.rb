@@ -1,5 +1,7 @@
 Happenly::Application.routes.draw do
   
+  get "static/about"
+
  resources :events do
     resources :comments
  end
@@ -10,6 +12,8 @@ Happenly::Application.routes.draw do
  match '/signup', to: 'users#new'
  match '/signout', to: 'sessions#destroy', via: :delete
  match '/signin', to: 'sessions#new'
+ match '/search/:string', to:'events#search'
+ match '/about', to: 'static#about'
 
 
   # The priority is based upon order of creation:

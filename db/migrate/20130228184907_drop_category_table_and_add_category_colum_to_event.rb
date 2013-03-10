@@ -1,6 +1,6 @@
 class DropCategoryTableAndAddCategoryColumToEvent < ActiveRecord::Migration
   def up
-  	drop_table :categories
+  	remove_table :categories
   	add_column :events, :category, :string
   end
 

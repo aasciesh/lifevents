@@ -1,0 +1,72 @@
+<%= form_for @event, remote: true, html: {'data-type' => 'json'} do |f| %>
+<table class="eT">
+	<tr class="eTr">
+		<th class="eTh">
+			<%= f.label :name, class: 'eTl'  %>
+		</th>
+		<td class="eTd">
+			<%= f.text_field :name, class: 'eTi', placeholder: 'Name of event like, My Birthday.'%>
+		</td>
+	</tr>
+	<tr class="eTr">
+		<th  class="eTh">
+			<%= f.label :description, "Details", class: 'eTl'  %>
+		</th>
+		<td  class="eTd">
+			<%= f.text_area :description, class: 'eTta', placeholder: 'Some details. And hey you can use cool colon tags like :rocknroll :football here' %>
+		</td>
+	</tr>
+	<tr class="eTr">
+		<th class="eTh">
+			<%= f.label :address, class: 'eTl' %>
+		</th>
+		<td   class="eTd">
+			<%= f.text_field :address, value: user_location.address, class: 'eTi', placeholder: 'address?' %>
+		</td>
+	</tr>
+	<tr class="eTr">
+		<th class="eTh">
+			<%= f.label :from_time, "From", class: 'eTl'  %>
+		</th>
+		<td   class="eTd">
+			<%= f.text_field :from_time, class: 'eTi' %>
+		</td>
+	</tr>
+	<tr class="eTr">
+		<th  class="eTh">
+			<%= f.label :to_time, "To", class: 'eTl'  %>
+		</th>
+		<td   class="eTd"><%= f.text_field :to_time, class: 'eTi' %>
+		</td>
+	</tr>	
+	<!-- <tr class="eTr">
+		<th class="eTh">
+			<%= f.label :tag_names, "Tags",class: 'eTl' %>
+		</th>
+		<td   class="eTd">
+			<%= f.text_field :tag_names, placeholder: 'Tags seperated with comma ","', class: 'eTi' %>
+		</td>
+	</tr> -->
+	<tr class="eTr">
+		<th class="eTh">
+			<%= f.label :urgency, class: 'eTl' %>
+		</th>
+		<td   class="eTd">
+			<%= f.select :urgency, ["Normal", "Medium", "high", "critical"], class: 'eTs' %>
+		</td>
+	</tr>
+	<tr class="eTr">
+		<th class="eTh">
+			<%= f.label :category, class: 'eTl'  %>
+		</th>
+		<td   class="eTd">
+			<%= f.select :category, [ "General Information", "Music", "Sports", "Entertainment", "Politics", "Life events", "Community events"], class: 'eTs' %>
+		</td>
+	</tr>
+</table>
+<div class="eFSB">
+	<%= image_tag "ajax-loader.gif", class: 'ajax-loader' %>
+	<%= f.submit "Transmit", class: "yt-uix-button yt-uix-button-primary" %>
+</div>
+<%end%>
+ 	

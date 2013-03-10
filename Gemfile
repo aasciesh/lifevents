@@ -9,6 +9,7 @@ gem 'pg'
 group :development, :test do
   gem 'sqlite3'
 end
+gem 'faye'
 gem 'mysql2'
 gem 'bcrypt-ruby'
 gem 'geocoder'

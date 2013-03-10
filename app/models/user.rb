@@ -14,22 +14,16 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: {minimum: 6}
   validates :password_confirmation, presence: true
   validates :email, presence: true, format: {with: EMAIL_REGEX}, uniqueness: { case_sensitive: false } 
-  
-  # before_save(on: :update) do
-  #   @tempuser = User.find_by_id(self.id)
-  #   self.firstname = @tempuser.firstname
-  #   self.lastname = @tempuser.lastname
-  #   self.ip = request.remote_ip
-  #   self.email = self.email.downcase
-  # end
-
-  before_save :create_cookie
-
-
+  validates_attachment :avatar, :presence => true, content_type: {content_type: ["image/jpg", "image/jpeg", "image/png"]},
+                        :size => { :in => 0..2048.kilobytes }
+ 
+  before_save :create_cookie, :downcase_email
   private 
 
   def create_cookie
       self.remember_cookie = SecureRandom.urlsafe_base64
   end
-
+  def downcase_email
+    self.email = self.email.downcase
+  end
 end
