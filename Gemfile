@@ -4,11 +4,11 @@ gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'pg'
 
 group :development, :test do
   gem 'sqlite3'
 end
+gem 'thin'
 gem 'faye'
 gem 'mysql2'
 gem 'bcrypt-ruby'
@@ -38,7 +38,7 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+# gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'

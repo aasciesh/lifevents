@@ -1,0 +1,28 @@
+<% if @events.any? %>
+	<% @events.each_with_index do |event, index| %>
+		<% eventlink = "/events/'#{event.id}'"%>
+		<div class='eventfeed' data-eventid='<%= event.id%>' data-no ='<%= index+1 %>' data-lat='<%= event.latitude%>' data-lon='<%= event.longitude%>'>
+			<div class='feedhead'>
+				<span class='badge badge-info'><%= index+1 %></span>
+				<a href='<%= eventlink %>'><%= event.name %></a>
+			</div>
+			<div class='feedbody'>
+				<div class='feedbodyleft'>
+					<%=  link_to image_tag(event.user.avatar.url(:thumb), :border=>0, class: '') %>
+				</div>
+				<div class='feedbodyright'>
+					<div class='fbrtop'>
+						<span class='username'><%= '#{event.user.firstname.capitalize} #{event.user.lastname.capitalize}' %> </span>
+						 <span class='timestamp'> transmitted <%= time_ago_in_words(event.created_at) %> ago </span>
+					</div>
+					<div class='fbrcontent'>
+						<%= raw event.description %>
+					</div>
+				</div>
+			</div>
+			<div class='feedbottom'>
+				<%= event.comments.count %> Comments & <%= event.eventjoiners.count %> Joiners | More
+			</div>
+		</div>
+	<% end %>
+<% end %>

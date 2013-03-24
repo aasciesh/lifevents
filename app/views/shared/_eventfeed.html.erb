@@ -1,0 +1,43 @@
+<% if @events.any? %>
+	<% @events.each_with_index do |event, index| %>
+		<div class="eventfeed" data-eventid="<%= event.id%>" data-no ="<%= index+1 %>" data-lat="<%= event.latitude%>" data-lon="<%= event.longitude%>">
+			<div class="feedhead">
+				<span class="badge badge-info"><%= index+1 %></span> <%= link_to "#{event.name}", event_path(event) %>
+				<span class="event-address"style="float:right;"><i class="icon-map-marker" ></i><span class="hidden"><%=event.address %></span></span>
+			</div>
+			<div class="feedbody">
+				<div class="feedbodyleft">
+					<%=  link_to image_tag(event.user.avatar.url(:thumb), :border=>0, class: '') %>
+
+				</div>
+				<div class="feedbodyright">
+					<div class="fbrtop">
+						<span class="username"><%= "#{event.user.firstname.capitalize} #{event.user.lastname.capitalize}" %> </span>
+						 <span class="timestamp"> transmitted <%= time_ago_in_words(event.created_at) %> ago </span>
+					</div>
+					<div class="fbrcontent">
+						<%= raw event.description %>
+					</div>
+				</div>
+			</div>
+			<div class="feedbottom">
+				<span >
+					<% if !signed_in? %>
+						<span id="joinEventLink-<%=event.id%>"class="joinButton label label-info" ><%= link_to 'Join', signin_path, style: 'text-decoration:none; color: white;' %></span>
+					<% elsif event.user == current_user %>
+					<% elsif !!current_user.eventjoins.find_by_joinedevent_id(event.id) %>
+						<span id="joinEventLink-<%=event.id%>"class="joinButton label label-success" onclick="joinEvent(<%=event.id%>)">Joined</span> 
+					<% elsif !current_user.eventjoins.find_by_joinedevent_id(event.id) %>
+						<span id="joinEventLink-<%=event.id%>"class="joinButton label label-info" onclick="joinEvent(<%=event.id%>)">Join</span>
+					<% end %>
+					<i class="icon-comment"></i>
+					<%= link_to "comment", event_path(event) %> 
+				</span>
+				<span style="float:right">
+					<%= event.comments.count %> Comments & <%= event.eventjoiners.count %> Joiners 
+				</span>
+			</div>
+		</div>
+	<% end %>
+<% end %>
+

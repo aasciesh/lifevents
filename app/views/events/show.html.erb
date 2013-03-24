@@ -1,0 +1,55 @@
+<div class="container">
+	<div class="span3">
+		<img class='staticMap' src='http://maps.googleapis.com/maps/api/staticmap?center=<%= @event.latitude%>,<%=@event.longitude %>&zoom=12&size=220x410&markers=color:blue%7Clabel:E%7C<%= @event.latitude%>,<%=@event.longitude %>&sensor=false'>
+	</div>
+	<div class="span6">
+		<table class="table table-striped">
+			<tr>
+				
+				<td>
+					<h4><%= @event.name%></h4>
+					<i class="icon-map-marker"></i><span style="font-size:10px; color:grey"><%= @event.address %></span>
+				</td>
+			</tr>
+			<tr>
+				
+				<td>
+					<%= @event.description%>
+				</td>
+			</tr>
+		</table>
+		<%= form_for([@event, @event.comments.build]) do |f| %>
+			<div class="commentSection">
+				<%= f.text_area :comment, class: 'comment_box' %>
+				<%= f.submit 'submit', class: 'yt-uix-button yt-uix-button-primary'%>
+			</div>
+		<% end %>
+		<div class="commentDisplay">
+			<% @event.comments.each do |item| %>
+				<% if !item.user.nil? %>
+					<div class="commentHolder">
+						<div class="commentImage"><%= (link_to image_tag(item.user.avatar.url(:thumb), :border=>0, class: 'pic_thumb commenters_avatar'), item.user)  %></div>
+						<div class="commentBody">
+							<div class="commenter">
+							<%= item.user.firstname + " " + item.user.lastname %>
+							</div>
+							<div class="commenttext">
+							<%= item.comment %>
+							</div>
+						</div>
+					</div>
+				<%end %>
+			<% end %>
+		</div>
+	</div>
+	<div class="span4">
+		<h4> Event Joiners </h4>
+		<%= link_to image_tag(@event.user.avatar.url(:thumb), :border=>0, class: 'pic_thumb joiners_avatar'), @event.user %>
+		<% if @event.eventjoiners.any? %>
+			<% @event.eventjoiners.each do |eventjoiner| %>
+				<%= link_to image_tag(eventjoiner.avatar.url(:thumb), :border=>0, class: 'pic_thumb joiners_avatar'), eventjoiner %>
+			<% end %>
+		<% end %>
+	</div>
+	
+</div>

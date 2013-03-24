@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="span9">
+		<center>
+		<table class="table table-striped table-hover table-bordered">
+			<tr>
+				<th>
+					<h4>Notifications</h4>
+
+				</th>
+				<th></th><th></th>
+			</tr>
+			<% @notifications.each do |notification| %>
+			<tr>
+				<td> 
+					<%= link_to image_tag(notification.user.avatar.url(:thumb), :border=>0, class: 'pic_thumb'), user_path(notification.user) %>
+					<span style="font-weight: bold;"><%= notification.user.firstname + " " + notification.user.lastname%> </span> <span>wants to be friend with you.</span>
+				</td>
+				<td>
+					<%= button_to "Accept friendship request", {controller: "friendships", action: "update", id: notification.user.id}, method: :put,form_class: 'button_to_left', class: 'c-b-da y-qa-za-b c-b a-f-e'%>
+				</td>
+				<td>
+					<%= button_to "Reject", {controller: "friendships", action: "destroy", id: notification.user.id}, method: :delete,form_class: 'button_to_right', class: 'c-b-da-changeable y-qa-za-b c-b a-f-e'%>
+				</td>
+			</tr>	
+			<% end %>
+		</table>
+		</center>
+	</div>
+</div>

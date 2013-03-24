@@ -1,0 +1,8 @@
+<a href="/notifications">
+	<i class="icon-bell"></i>
+	<% no = no_of_notifications %>
+	<% unless no < 1 %>
+		<span class="notify-badge badge badge-important"> <%= no %></span>
+	<%end%>
+</a>
+<span class="notify-info"><%= no %> friendship request(s).</span>

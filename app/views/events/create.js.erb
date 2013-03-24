@@ -1,0 +1,5 @@
+<% faye_transmit @channel do %>
+	$("#feedContainer").prepend("<%= escape_javascript render 'shared/eventfeed' %>");
+<% end %>
+
+	$("#feedContainer").prepend("<%= escape_javascript render 'shared/creatorsfeed' %>");

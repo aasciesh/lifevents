@@ -1,5 +1,30 @@
 <div class="container">
-<h1><%= @user.firstname.capitalize%>&nbsp;<%=@user.lastname.capitalize%></h1>
-<%= image_tag @user.avatar.url(:medium), class: "img-polaroid" %>
+	<div class="span5">
+		<h1><%= @user.firstname.capitalize%>&nbsp;<%=@user.lastname.capitalize%></h1>
+		<%= image_tag @user.avatar.url(:medium), class: "img-polaroid" %>
+		<div style="width:100%; margin: 10px 0px 10px 0px;">
+			
+			<% if current_user == nil %>
+			<% elsif current_user == @user %>
+			<% elsif is_friend_already?(@user.id) %>
+				<div class='c-b-da y-qa-za-b c-b a-f-e'>You are friends.</div>
+				<%= button_to "Unfriend", {controller: "friendships", action: "destroy", id: @user}, method: :delete,form_class: 'button_to_right', class: 'c-b-da-changeable y-qa-za-b c-b a-f-e'%>
+			<% elsif has_requested_friendship?(@user.id) %>
+				<%= button_to "Accept friendship request", {controller: "friendships", action: "update", id: @user}, method: :put,form_class: 'button_to_left', class: 'c-b-da y-qa-za-b c-b a-f-e'%>
+				<%= button_to "Reject", {controller: "friendships", action: "destroy", id: @user}, method: :delete,form_class: 'button_to_right', class: 'c-b-da-changeable y-qa-za-b c-b a-f-e'%>
+			<% elsif has_to_accept_friendship?(@user.id) %>
+				<div class='c-b-da y-qa-za-b c-b a-f-e'>Request pending</div>
+				<%= button_to "Take back request", {controller: "friendships", action: "destroy", id: @user}, method: :delete,form_class: 'button_to_right', class: 'c-b-da-changeable y-qa-za-b c-b a-f-e'%>
+			<% else %>
+				<%= button_to "Add as friend", {controller: "friendships", action: "create" , method: 'put',  id: @user},form_class: 'button_to_left', class: 'c-b-da y-qa-za-b c-b a-f-e'%>
+			<%end%>
 
+		</div>
+	</div>
+	<div class="span5">
+	</div>
+	<div class="span3">
+		<h4> <%= @user.friendships.where('status=1').count+ @user.inverse_friendships.where('status=1').count %> Friends</h4>
+
+	</div>
 </div>

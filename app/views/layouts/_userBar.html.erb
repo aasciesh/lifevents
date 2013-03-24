@@ -1,11 +1,11 @@
 <% fullname= "#{current_user.firstname.capitalize} #{current_user.lastname.capitalize}" %>
-<%= link_to image_tag(current_user.avatar.url(:tiny), :border=>0, class: 'pic_thumb'), current_user %>
+<%= link_to image_tag(current_user.avatar.url(:tiny), :border=>0, class: 'pic_tiny'), current_user %>
 <span class="user-option"><%= link_to fullname, current_user, class: 'user-name' %> <i class="icon-cog icon-black"></i> </span>
 <div class="user-menu">
   <ul >
-    <li><%= link_to "Profile", current_user %></li>
-    <li><%= link_to "Profile Settings", edit_user_path(current_user) %></li>
     
+    <li><%= link_to "Profile Settings", edit_user_path(current_user) %></li>
+    <li><%= link_to "Profile", current_user %></li>
     <li><%= link_to "Sign Out", signout_path, method: "delete" %></li>
   </ul>
 </div> 

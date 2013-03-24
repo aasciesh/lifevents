@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
   	@event= Event.new
-  	@events = Event.near(user_location, 30, include: :user)
+  	@events = Event.order('created_at DESC').limit(30).near("malmi helsinki", 30).all
   end
 end

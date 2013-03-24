@@ -11,13 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130304212701) do
+ActiveRecord::Schema.define(:version => 20130317172609) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.integer  "event_id"
   end
+
+  add_index "comments", ["event_id"], :name => "index_comments_on_event_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "eventjoins", :force => true do |t|
+    t.integer  "eventjoiner_id"
+    t.integer  "joinedevent_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "eventjoins", ["eventjoiner_id"], :name => "index_eventjoins_on_eventjoiner_id"
+  add_index "eventjoins", ["joinedevent_id"], :name => "index_eventjoins_on_joinedevent_id"
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -33,6 +48,26 @@ ActiveRecord::Schema.define(:version => 20130304212701) do
     t.float    "longitude"
     t.string   "address"
     t.string   "category"
+    t.integer  "user_id"
+  end
+
+  add_index "events", ["user_id"], :name => "index_events_on_user_id"
+
+  create_table "friendships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "friendships", ["status"], :name => "index_friendships_on_status"
+
+  create_table "relationships", :force => true do |t|
+    t.integer  "friender_id"
+    t.integer  "friended_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "taglists", :force => true do |t|
@@ -42,11 +77,16 @@ ActiveRecord::Schema.define(:version => 20130304212701) do
     t.integer  "event_id"
   end
 
+  add_index "taglists", ["event_id"], :name => "index_taglists_on_event_id"
+  add_index "taglists", ["tag_id"], :name => "index_taglists_on_tag_id"
+
   create_table "tags", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "tags", ["name"], :name => "index_tags_on_name"
 
   create_table "users", :force => true do |t|
     t.string   "firstname"

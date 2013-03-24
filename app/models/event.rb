@@ -5,12 +5,14 @@ class Event < ActiveRecord::Base
 
   has_many :comments
   belongs_to :user
-  has_many :taglist, dependent: :destroy
-  has_many :tags, through: :taglist
+  has_many :taglists
+  has_many :tags, through: :taglists
+  has_many :eventjoins, foreign_key: "joinedevent_id"
+  has_many :eventjoiners, through: :eventjoins, as: :joinedevent
 
   validates :name, presence: true, length: {maximum: 200}
   validates :description, presence: true, length: {minimum: 10}
-  validates :from_time, presence: true
+  # validates :from_time, presence: true
   validates :address, presence: true
   validates :urgency, presence: true, urgency_type: true
   validates :category, presence: true, category_type: true

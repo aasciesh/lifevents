@@ -1,20 +1,23 @@
 Happenly::Application.routes.draw do
   
-  get "static/about"
+ 
+  get "notifications/index"
 
  resources :events do
     resources :comments
  end
+ resources :notifications
  resources :users
  resources :sessions
- 
+ resources :friendships
+ resources :eventjoins
  root :to => 'home#index'
  match '/signup', to: 'users#new'
  match '/signout', to: 'sessions#destroy', via: :delete
  match '/signin', to: 'sessions#new'
  match '/search/:string', to:'events#search'
  match '/about', to: 'static#about'
-
+ 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

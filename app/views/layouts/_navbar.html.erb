@@ -1,12 +1,13 @@
 <div class="nav-container">
 	<div class="navBar">
 		<div id="logo">
-			<%=link_to "Happenly", root_path, class: 'logoText' %>
+			<%=link_to "Lifevents", root_path, class: 'logoText' %>
 			<!-- <span id="logoText"> Happenly </span>  -->
 		</div>
 		<div id="searchDiv">
 			<%= render 'layouts/search' %>
 		</div>
+
 		<div id="userInfo">
 			<% if signed_in? %>
 				
@@ -15,5 +16,10 @@
 				<%= render 'layouts/signBar' %>
 			<%end%>
 		</div>
+		<% if signed_in? %>
+			<div id="notifyDiv">
+					<%= render 'notifications/notify_bar' %>
+			</div>
+		<%end%>
 	</div>
 </div>

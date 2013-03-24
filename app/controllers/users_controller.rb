@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_filter :find_user, only: [:show, :edit, :update]
+  before_filter :signed_in_user, only: [:edit, :update, :delete]
+  before_filter :confirm_right_user, only: [:edit, :update, :delete]
 
   def index
     @users = User.find(:all)
@@ -33,6 +35,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(params[:user])
+      sign_in @user
       redirect_to @user
     else
       render action: 'edit'
@@ -46,5 +49,11 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
+  end
+
+  def confirm_right_user
+    unless User.find(params[:id]) == current_user 
+      redirect_to root_path
+    end
   end
 end
