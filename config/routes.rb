@@ -1,12 +1,13 @@
 Happenly::Application.routes.draw do
   
  
-  get "notifications/index"
+get "notifications/index"
 
  resources :events do
     resources :comments
  end
  resources :notifications
+ resources :search
  resources :users
  resources :sessions
  resources :friendships
@@ -15,7 +16,6 @@ Happenly::Application.routes.draw do
  match '/signup', to: 'users#new'
  match '/signout', to: 'sessions#destroy', via: :delete
  match '/signin', to: 'sessions#new'
- match '/search/:string', to:'events#search'
  match '/about', to: 'static#about'
  
 

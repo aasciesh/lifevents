@@ -8,12 +8,15 @@ gem 'rails', '3.2.12'
 group :development, :test do
   gem 'sqlite3'
 end
+gem 'tire'
 gem 'thin'
 gem 'faye'
 gem 'mysql2'
 gem 'bcrypt-ruby'
+gem 'cocaine'
 gem 'geocoder'
-gem "paperclip", "~> 3.4.1"
+gem 'will_paginate'
+gem "paperclip", "~> 3.4.0"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

@@ -1,4 +1,4 @@
 <%= form_tag("/search", :method => "get", class: 'navbar-search') do %>
-  <%= text_field_tag :q, "Search events, people.." %>
+  <%= text_field_tag :query, "Search events, people..", id: 'search' %>
   <%= image_submit_tag "search.gif" , :class => "qb" %>
 <% end %>

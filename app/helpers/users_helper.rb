@@ -2,7 +2,7 @@
 module UsersHelper
 	def user_location
 		@location = request.location
-		user_channel = @location.city
+		user_channel = @location.country
 		@location
 	end
 
@@ -11,6 +11,6 @@ module UsersHelper
 	end
 
 	def user_channel
-		@user_channel ||= request.location.city
+		@user_channel ||= request.location.country
 	end
 end

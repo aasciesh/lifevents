@@ -254,7 +254,7 @@
 
 #searchDiv
 {
-	width:396px;
+	width:427px;
 	height: 25px;
 	float:left;
 	margin-left: 120px;
@@ -320,23 +320,29 @@
 	text-decoration: none;
 	
 }
-#q
+#search
 {
-
+	border-bottom: 1px solid #2A92B3;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	padding-right: 30px;
 	width:350px;
+}
+#place
+{
+	width:100px;
 }
 .qb 
 {
-	margin-bottom: 10px;
+	position: relative;
+	right: 30px;
+	margin-bottom: 11px;
 	background: url(/assets/search.gif) no-repeat;
 	margin-left: -1px;
 	padding: 9px 7px 7px;
-	border: 1px solid;
-	border-color: #c2c0c0 #cccaca #d1cfcf;
-	box-shadow: 0 1px rgba(255,255,255,0.9),inset 0 0 2px rgba(255,255,255,0.75);
-	-moz-box-shadow: 0 1px rgba(255,255,255,0.9),inset 0 0 2px rgba(255,255,255,0.75);
-	-webkit-box-shadow: 0 1px rgba(255,255,255,0.9),inset 0 0 2px rgba(255,255,255,0.75);
-
+	
+	
 
 	background-color: #f0eded;
 	background: -moz-linear-gradient(top, #fffcfc, #f0eded);
